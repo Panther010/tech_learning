@@ -8,7 +8,7 @@ case class urlData(LE_ID:String, PROFILE_NAME:String, SUB_SEGMENT_NAME:String, D
     val sqlContext = new org.apache.spark.sql.SQLContext(sc)
     val hc = new HiveContext(sc)
     
-    val url = "http://uklvadapp321.uk.standardchartered.com:8071/open-api/v1/rtt/status/country?country=MY"
+    val url = "url"
     
     // Fetching data from URL
     val content = scala.io.Source.fromURL(url).mkString
@@ -19,7 +19,7 @@ case class urlData(LE_ID:String, PROFILE_NAME:String, SUB_SEGMENT_NAME:String, D
     val header = dataRdd.first()
     val dataNoHeader = dataRdd.filter(x => (x != header))
     
-    dataNoHeader.coalesce(1).saveAsTextFile("hdfs://nnscbhaasdev/dev/trdam/hdata/test/")
+    dataNoHeader.coalesce(1).saveAsTextFile("path")
     
     //making dataframe after reading data
     
